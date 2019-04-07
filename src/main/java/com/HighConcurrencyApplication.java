@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 @SpringBootApplication
-public class HighConcurrencyApplication extends WebMvcConfigurerAdapter{
+public class HighConcurrencyApplication extends WebMvcConfigurationSupport {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HighConcurrencyApplication.class, args);
