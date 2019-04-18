@@ -18,6 +18,7 @@ public class CountDownLatchExample1 {
         ExecutorService exec = Executors.newCachedThreadPool();
         final CountDownLatch countDownLatch = new CountDownLatch(threadCount);
         for (int i = 0; i < threadCount; i++) {
+
             final int threadNum = i;
             exec.execute(() -> {
                 try {
@@ -31,7 +32,7 @@ public class CountDownLatchExample1 {
         }
         countDownLatch.await();
         log.info("finish");
-        exec.shutdown();
+        exec.shutdown(); // 这里调用shutdown方法并不是第一时间内把所有线程都全部销毁掉，而是会让当前已有的线程全部执行完，之后再把这个线程池销毁掉
     }
 
     private static void test(int threadNum) throws Exception {

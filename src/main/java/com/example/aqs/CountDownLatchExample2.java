@@ -33,7 +33,7 @@ public class CountDownLatchExample2 {
         }
         countDownLatch.await(10, TimeUnit.MILLISECONDS); // 给定时间的等待
         log.info("finish");
-        exec.shutdown(); // 这里调用shutdown方法并不是第一时间内把所有线程都全部销毁掉，而是会让当前已有的线程全部执行完，之后再把这个线程池销毁掉
+        exec.shutdown();
     }
 
     private static void test(int threadNum) throws Exception {
