@@ -14,12 +14,13 @@ import java.util.concurrent.Executors;
 public class CyclicBarrierExample3 {
 
     private static CyclicBarrier barrier = new CyclicBarrier(5, () -> {
+        log.info("callback is running start");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        log.info("callback is running");
+        log.info("callback is running end");
     });
 
     public static void main(String[] args) throws Exception {
